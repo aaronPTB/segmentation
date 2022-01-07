@@ -23,4 +23,4 @@ Utilize `experiments/dataset_generation.ipynb` to generate image and mask files 
 
 `pipeline` folder has training code on imaterialist dataset. Setup with config file to easily create a pipeline
 
-Trained unet model based on Timm implementation of EfficientNet-B3 is available here: `https://sanats2.s3.us-east-2.amazonaws.com/unet-timm-efficient-b3.pth`
+Trained unet model based on Timm implementation of EfficientNet-B3 is available here: https://sanats2.s3.us-east-2.amazonaws.com/unet-timm-efficient-b3.pth

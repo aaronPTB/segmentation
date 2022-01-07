@@ -14,8 +14,8 @@ from pytorch_lightning.loggers import WandbLogger
 from pytorch_toolbelt.losses import JaccardLoss, BinaryFocalLoss
 from torch.utils.data import DataLoader
 
-from cloths_segmentation.dataloaders import SegmentationDataset
-from cloths_segmentation.utils import get_samples, binary_mean_iou
+from pipeline.dataloaders import SegmentationDataset
+from pipeline.utils import get_samples, binary_mean_iou
 
 def get_args():
     parser = argparse.ArgumentParser()

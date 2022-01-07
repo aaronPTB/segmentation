@@ -8,8 +8,6 @@ import pandas as pd
 from PIL import Image
 from tqdm import tqdm
 
-from iglovikov_helper_functions.utils.mask_utils import rle2mask
-
 
 def get_args():
     parser = argparse.ArgumentParser()
@@ -18,6 +16,28 @@ def get_args():
     parser.add_argument("-o", "--output_folder", type=Path, help="Path to the output folder")
     return parser.parse_args()
 
+
+def rle2mask(src_string: str, size: tuple) -> np.array:
+    """Convert mask from rle to numpy array.
+    Args:
+        src_string: rle string
+        size: (width, height)
+    Returns: binary numpy array with mask
+    """
+    width, height = size
+
+    mark = np.zeros(width * height).astype(np.uint8)
+
+    array = np.asarray([int(x) for x in src_string.split()])
+    starts = array[0::2]
+    ends = array[1::2]
+
+    current_position = 0
+    for index, first in enumerate(starts):
+        mark[int(first) : int(first + ends[index])] = 1
+        current_position += ends[index]
+
+    return mark.reshape(width, height).T
 
 def main():
     args = get_args()

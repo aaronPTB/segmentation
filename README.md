@@ -18,9 +18,14 @@ Utilize `experiments/dataset_generation.ipynb` to generate image and mask files 
 `experiments/dataset_exploration_segmentation.ipynb` offers a look into the segmentation masks and images, and a summary of dataset stats.
 
 `experiments/fashion_segmentation_training_smp.ipynb` has code for training on DeepFashion2 using smp. Utilize FPN net and se_resnext50_32x4d encoder with Imagenet weights for training. Results were mixed due to dataset being unpredictable at times. Clothing often cut off or occluded.
+Results better on imaterialist dataset.
 
 `experiments/dataset_exploration_segmentation_imaterialist.ipynb` has dataset exploration and dataloader code on imaterialist dataset
 
 `pipeline` folder has training code on imaterialist dataset. Setup with config file to easily create a pipeline
 
 Trained unet model based on Timm implementation of EfficientNet-B3 is available here: https://sanats2.s3.us-east-2.amazonaws.com/unet-timm-efficient-b3.pth
+
+TODO:
+1) Use pretrained model on imaterialist on DeepFashion2 to see if even better weights can be learned.
+2) Areas to improve - Add regular items: Non clothing items, jewelery, bags, belts etc to dataset (How to Generate Masks?). One approach could be to only use images with white background and generate masks using heuristics to train. Could work for most items.
